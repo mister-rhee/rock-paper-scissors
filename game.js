@@ -7,7 +7,6 @@ function getComputerChoice() {
 }
 
 function playRound(playerSelection, computerSelection) {
-    playerSelection = playerSelection.toUpperCase();
     let cond = true;
     while (cond) {
         if (playerSelection == computerSelection) { cond = true; }
@@ -45,35 +44,16 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-const rock = document.querySelector(".rock");
-const paper = document.querySelector(".paper");
-const sci = document.querySelector(".scissors");
-const scoreBoard = document.querySelector(".result");
+function handleClick(player) {
+    playRound(player, getComputerChoice());
+}
 
 let scorePlayer = 0;
 let scoreComputer = 0;
+const btnRock = document.querySelector(".rock");
+const btnPaper = document.querySelector(".paper");
+const btnSci = document.querySelector(".scissors");
 
-rock.addEventListener('click', () => {
-    if (playRound("ROCK", getComputerChoice()) == 1) {
-        scorePlayer++;
-    } else { scoreComputer++; }
-    updateScoreBoard();
-});
-paper.addEventListener('click', () => {
-    if (playRound("PAPER", getComputerChoice()) == 1) {
-        scorePlayer++;
-    } else { scoreComputer++; }
-    updateScoreBoard();
-});
-sci.addEventListener('click', () => {
-    if (playRound("SCISSORS", getComputerChoice()) == 1) {
-        scorePlayer++;
-    } else { scoreComputer++; }
-    updateScoreBoard();
-});
-
-function updateScoreBoard() {
-    scoreBoard.textContent = `${scorePlayer} : ${scoreComputer}`;
-}
-
-updateScoreBoard();
+btnRock.addEventListener('click', () => handleClick("ROCK"));
+btnPaper.addEventListener('click', () => handleClick("PAPER"));
+btnSci.addEventListener('click', () => handleClick("SCISSORS"));
