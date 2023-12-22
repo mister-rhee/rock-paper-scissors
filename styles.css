@@ -40,3 +40,11 @@ button:hover {
 button:active {
     background-color: rgb(114, 114, 114);
 }
+
+.player {
+    color: aliceblue;
+}
+
+.computer {
+    color: aliceblue;
+}
